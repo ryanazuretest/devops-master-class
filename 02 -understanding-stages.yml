@@ -15,7 +15,7 @@ stages:
   - job: FirstJob
     steps:
     - bash: echo Build the FirstJob 
-    - bash: my favourite operating system is redhat OS version $(redhat_OS)
+    - bash: echo my favourite operating system is redhat OS version $(redhat_OS)
   - job: SecondJob
     steps:
     - bash: echo Build the SecondJob  
