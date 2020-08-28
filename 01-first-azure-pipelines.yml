@@ -13,14 +13,18 @@ pool:
 
 #different steps that are part of the build pipeline
 #these are very basic examples
-steps:
-- script: |
-    echo Hello, world !
-    echo Testing script build pipeline, adding comment here
-  displayName: 'Run a one-line script'
+jobs:
+- job: Job1
+  steps:
+  - script: |
+      echo Hello, world !
+      echo Testing script build pipeline, adding comment here
+    displayName: 'Run a one-line script'
 
 #multi line script bring run
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- job: Job2
+  steps:
+  - script: |
+      echo Add other tasks to build, test, and deploy your project.
+      echo See https://aka.ms/yaml
+    displayName: 'Run a multi-line script'
