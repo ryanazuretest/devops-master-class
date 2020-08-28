@@ -3,16 +3,21 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+#build is triggered on any change to the master branch
 trigger:
 - master
 
+#the pool is the ubuntu image for the Agent to run on
 pool:
   vmImage: 'ubuntu-latest'
 
+#different steps that are part of the build pipeline
+#these are very basic examples
 steps:
 - script: echo Hello, world Updated!
   displayName: 'Run a one-line script'
 
+#multi line script bring run
 - script: |
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
