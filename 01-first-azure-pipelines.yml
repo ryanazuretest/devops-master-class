@@ -23,6 +23,7 @@ jobs:
 
 #multi line script bring run
 - job: Job2
+  dependsOn: Job1
   steps:
   - script: |
       echo Add other tasks to build, test, and deploy your project.
