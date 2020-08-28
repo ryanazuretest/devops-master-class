@@ -14,7 +14,9 @@ pool:
 #different steps that are part of the build pipeline
 #these are very basic examples
 steps:
-- script: echo Hello, world Updated!
+- script: |
+    echo Hello, world !
+    echo Testing script build pipeline, adding comment here
   displayName: 'Run a one-line script'
 
 #multi line script bring run
