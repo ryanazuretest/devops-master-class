@@ -15,25 +15,33 @@ stages:
   - job: FirstJob
     steps:
     - bash: echo Build the FirstJob 
-    - bash: echo my favourite operating system is redhat OS version $(redhat_OS)
+    - bash: echo $(Agent.OSArchitecture)
+    - bash: echo $(Agent.MachineName)
+    - bash: echo $(Build.BuildUri)
+    - bash: echo $(Build.Repository.ID)
+    - bash: echo $(Environment.Name)
+    - bash: echo $(System.CollectionId)
+    - bash: echo $(System.StageDisplayName)
+    - bash: ls -R $(System.DefaultWorkingDirectory)
+    - bash: echo $(Build.ArtifactStagingDirectory)
   - job: SecondJob
     steps:
     - bash: echo Build the SecondJob  
-- stage: DevDeploy
-  jobs:
-  - job: DevDeployJob
-    steps:
-    - bash: echo Build the DevDeploy Job for $(company)
-- stage: QADeploy
-  jobs:
-  - job: QADeployJob
-    steps:
-    - bash: echo Build the QADeploy Job for $(company)
-- stage: ProdDeploy
-  jobs:
-  - job: ProdDeployJob
-    steps:
-    - bash: echo Build the ProdDeploy Job for $(company)
+# - stage: DevDeploy
+#   jobs:
+#   - job: DevDeployJob
+#     steps:
+#     - bash: echo Build the DevDeploy Job for $(company)
+# - stage: QADeploy
+#   jobs:
+#   - job: QADeployJob
+#     steps:
+#     - bash: echo Build the QADeploy Job for $(company)
+# - stage: ProdDeploy
+#   jobs:
+#   - job: ProdDeployJob
+#     steps:
+#     - bash: echo Build the ProdDeploy Job for $(company)
 
 
 
