@@ -18,7 +18,7 @@ jobs:
   steps:
   - script: |
       echo Hello, world !
-      echo Testing script build pipeline, adding comment here
+      echo Testing script build pipeline, adding comment here. OK
     displayName: 'Run a one-line script'
     
 - job: Job2
