@@ -14,7 +14,8 @@ stages:
   jobs:
   - job: FirstJob
     steps:
-    - bash: echo Build the FirstJob
+    - bash: echo Build the FirstJob 
+    - bash: my favourite operating system is redhat OS version $(redhat_OS)
   - job: SecondJob
     steps:
     - bash: echo Build the SecondJob  
@@ -22,17 +23,17 @@ stages:
   jobs:
   - job: DevDeployJob
     steps:
-    - bash: echo Build the DevDeploy Job  
+    - bash: echo Build the DevDeploy Job for $(company)
 - stage: QADeploy
   jobs:
   - job: QADeployJob
     steps:
-    - bash: echo Build the QADeploy Job  
+    - bash: echo Build the QADeploy Job for $(company)
 - stage: ProdDeploy
   jobs:
   - job: ProdDeployJob
     steps:
-    - bash: echo Build the ProdDeploy Job  
+    - bash: echo Build the ProdDeploy Job for $(company)
 
 
 
