@@ -20,21 +20,32 @@ stages:
   - job: SecondJob
     steps:
     - bash: echo Build the SecondJob
-- stage: DevDeploy
-  jobs:
-  - job: DevDeployJob
-    steps:
-    - bash: echo Build the DevDeploy Job for $(company)
-- stage: QADeploy
-  jobs:
-  - job: QADeployJob
-    steps:
-    - bash: echo Build the QADeploy Job for $(company)
-- stage: ProdDeploy
-  jobs:
-  - job: ProdDeployJob
-    steps:
-    - bash: echo Build the ProdDeploy Job for $(company)
+
+    - task: CopyFiles@2
+      inputs:
+        SourceFolder: '$(System.DefaultWorkingDirectory)'
+        Contents: |
+          **/*.yaml
+          **/*.tf
+        TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    - bash: ls -R $(Build.ArtifactStagingDirectory)
+
+
+#  - stage: DevDeploy
+# jobs:
+#  - job: DevDeployJob
+#  steps:
+#  - bash: echo Build the DevDeploy Job for $(company)
+#  - stage: QADeploy
+#  jobs:
+#  - job: QADeployJob
+#  steps:
+#  - bash: echo Build the QADeploy Job for $(company)
+#  - stage: ProdDeploy
+#  jobs:
+#  - job: ProdDeployJob
+#  steps:
+#  - bash: echo Build the ProdDeploy Job for $(company)
 
 
 
